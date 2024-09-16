@@ -1,0 +1,41 @@
+GET http://localhost:5000/tasks HTTP/1.1
+
+###
+POST http://localhost:5000/tasks HTTP/1.1
+Content-Type: application/json
+
+{
+ "title": "Workout",
+ "description": "Do a 30-minute workout routine.",
+ "dueDate": "2024-09-15"
+}
+
+###
+#status(200)
+GET http://localhost:5000/tasks/eb36b4ad-1154-417e-b10a-dd3422d5aed3 HTTP/1.1
+
+###
+#(404)Not found Tasks
+GET http://localhost:5000/tasks/eb30000ad-1154-417e-b10a-dd3422d5aed3 HTTP/1.1
+
+###
+
+PATCH http://localhost:5000/tasks/d6eefe0e-58c6-4102-9ecd-7cc308ef0e6b HTTP/1.1
+Content-Type: application/json
+
+{
+ "id": "d6eefe0e-58c6-4102-9ecd-7cc308ef0e6b",
+ "title": "Schedule dentist appointment",
+    "description": "Call the dentist to set up a routine checkup",
+    "status": "in progress",
+    "dueDate": "2024-09-18"
+}
+
+###
+#delet(404)
+DELETE  http://localhost:5000/tasks/d-1154-417e-b10a-dd3422d5aed3 HTTP/1.1
+
+###
+#delet(204)
+
+DELETE http://localhost:5000/tasks/eb36b4ad-1154-417e-b10a-dd3422d5aed3 HTTP/1.1
